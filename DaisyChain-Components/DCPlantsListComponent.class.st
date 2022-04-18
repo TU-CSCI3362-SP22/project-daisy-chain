@@ -14,7 +14,7 @@ html render: self categoriesComponent
 
 { #category : #'as yet unclassified' }
 DCPlantsListComponent >> basicRenderPostsOn: html [
-self readSelectedPosts do: [ :p |
+self readSelectedPlants do: [ :p |
 html render: (self postComponentFor: p) ]
 
 ]
@@ -43,7 +43,7 @@ DCPlantsListComponent >> initialize [
 
 { #category : #'as yet unclassified' }
 DCPlantsListComponent >> postComponentFor: aPost [
-^ DCPlantComponent new post: aPost
+^ DCPlantComponent new plant: aPost
 
 ]
 

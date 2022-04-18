@@ -8,7 +8,7 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
-TBBlog class >> createDemoPosts [
+TBBlog class >> createDemoPlants [
 "TBBlog createDemoPosts"
 self current
 writeBlogPost: ((TBPost title: 'Welcome in TinyBlog' text:
@@ -65,28 +65,28 @@ TBBlog class >> reset [
 	self initializeVoyageOnMemoryDB 
 ]
 
+{ #category : #private }
+TBBlog >> allCategories [
+	^ (self allPlants collect: [ :p | p category ]) asSet
+]
+
 { #category : #'as yet unclassified' }
-TBBlog >> allBlogPosts [
+TBBlog >> allPlants [
 	^ posts
 ]
 
 { #category : #'as yet unclassified' }
-TBBlog >> allBlogPostsFromCategory: aCategory [
+TBBlog >> allPlantsFromCategory: aCategory [
 	^ posts select: [ :p | p category = aCategory ]
 ]
 
-{ #category : #private }
-TBBlog >> allCategories [
-	^ (self allBlogPosts collect: [ :p | p category ]) asSet
-]
-
 { #category : #accessors }
-TBBlog >> allVisibleBlogPosts [
+TBBlog >> allVisiblePlants [
 	^ posts select: [ :p | p isVisible ]
 ]
 
 { #category : #'as yet unclassified' }
-TBBlog >> allVisibleBlogPostsFromCategory: aCategory [ 
+TBBlog >> allVisiblePlantsromCategory: aCategory [ 
 	^ posts select: [ :p | p category = aCategory and: [ p isVisible ] ]
 ]
 
@@ -97,7 +97,7 @@ TBBlog >> initialize [
 ]
 
 { #category : #removing }
-TBBlog >> removeAllPosts [
+TBBlog >> removeAllPlants [
 	posts := OrderedCollection new.
 	self save.
 ]
@@ -110,6 +110,6 @@ TBBlog >> size [
 { #category : #writing }
 TBBlog >> writeBlogPost: aPost [ 
 	"Add the blog post to the list of posts"
-	self allBlogPosts add: aPost.
+	self allPlants add: aPost.
 	self save
 ]

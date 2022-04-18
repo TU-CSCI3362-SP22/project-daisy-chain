@@ -32,10 +32,10 @@ DCScreenComponent >> initialize [
 ]
 
 { #category : #rendering }
-DCScreenComponent >> readSelectedPosts [
+DCScreenComponent >> readSelectedPlants [
 ^ self currentCategory
-ifNil: [ self blog allVisibleBlogPosts ]
-ifNotNil: [ self blog allVisibleBlogPostsFromCategory: self
+ifNil: [ self blog allVisiblePlants ]
+ifNotNil: [ self blog allVisiblePlantsromCategory: self
 currentCategory ]
 
 ]
@@ -59,7 +59,7 @@ extraSmallSize: 12;
 smallSize: 10;
 mediumSize: 8;
 with: [
-self readSelectedPosts do: [ :p |
-html render: (DCPlantComponent new post: p) ] ] ] ]
+self readSelectedPlants do: [ :p |
+html render: (DCPlantComponent new plant: p) ] ] ] ]
 
 ]

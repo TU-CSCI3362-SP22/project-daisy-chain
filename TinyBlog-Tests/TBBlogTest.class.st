@@ -11,7 +11,7 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
-TBBlogTest class >> createDemoPosts [
+TBBlogTest class >> createDemoPlants [
 "TBBlog createDemoPosts"
 self current
 writeBlogPost: ((TBPost title: 'Welcome in TinyBlog' text:
@@ -74,12 +74,12 @@ TBBlogTest >> testAddBlogPost [
 { #category : #tests }
 TBBlogTest >> testAllBlogPosts [
 	blog writeBlogPost: post.
-	self assert: blog allBlogPosts size equals: 2
+	self assert: blog allPlants size equals: 2
 ]
 
 { #category : #tests }
 TBBlogTest >> testAllBlogPostsFromCategory [
-	self assert: (blog allBlogPostsFromCategory: 'First Category') size equals: 1
+	self assert: (blog allPlantsFromCategory: 'First Category') size equals: 1
 ]
 
 { #category : #tests }
@@ -91,19 +91,19 @@ TBBlogTest >> testAllCategories [
 { #category : #tests }
 TBBlogTest >> testAllVisibleBlogPosts [
 	blog writeBlogPost: post.
-	self assert: blog allVisibleBlogPosts size equals: 1
+	self assert: blog allVisiblePlants size equals: 1
 ]
 
 { #category : #tests }
 TBBlogTest >> testAllVisibleBlogPostsFromCategory [
 	blog writeBlogPost: post.
-	self assert: (blog allVisibleBlogPostsFromCategory: 'First Category') size equals: 0.
-	self assert: (blog allVisibleBlogPostsFromCategory: 'Second Category') size equals: 1
+	self assert: (blog allVisiblePlantsromCategory: 'First Category') size equals: 0.
+	self assert: (blog allVisiblePlantsromCategory: 'Second Category') size equals: 1
 ]
 
 { #category : #tests }
 TBBlogTest >> testRemoveAllBlogPosts [
-	blog removeAllPosts.
+	blog removeAllPlants.
 	self assert: blog size equals: 0
 ]
 
@@ -115,5 +115,5 @@ TBBlogTest >> testSize [
 
 { #category : #tests }
 TBBlogTest >> testUnclassifiedBlogPosts [
-	self assert: (blog allBlogPosts select: [ :p | p isUnclassified ]) size equals: 0
+	self assert: (blog allPlants select: [ :p | p isUnclassified ]) size equals: 0
 ]

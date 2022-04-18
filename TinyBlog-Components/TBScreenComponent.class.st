@@ -32,10 +32,10 @@ TBScreenComponent >> initialize [
 ]
 
 { #category : #rendering }
-TBScreenComponent >> readSelectedPosts [
+TBScreenComponent >> readSelectedPlants [
 ^ self currentCategory
-ifNil: [ self blog allVisibleBlogPosts ]
-ifNotNil: [ self blog allVisibleBlogPostsFromCategory: self
+ifNil: [ self blog allVisiblePlants ]
+ifNotNil: [ self blog allVisiblePlantsromCategory: self
 currentCategory ]
 
 ]
@@ -59,7 +59,7 @@ extraSmallSize: 12;
 smallSize: 10;
 mediumSize: 8;
 with: [
-self readSelectedPosts do: [ :p |
+self readSelectedPlants do: [ :p |
 html render: (TBPostComponent new post: p) ] ] ] ]
 
 ]
