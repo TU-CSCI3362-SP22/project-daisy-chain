@@ -2,26 +2,30 @@ Class {
 	#name : #DCPlant,
 	#superclass : #Object,
 	#instVars : [
-		'title',
-		'text',
-		'date',
-		'category',
-		'visible'
+		'name',
+		'description',
+		'water',
+		'soil',
+		'health',
+		'visible',
+		'category'
 	],
 	#category : #DaisyChain
 }
 
 { #category : #accessor }
-DCPlant class >> title: aTitle text: aText [
+DCPlant class >> name: aName description: aDescription [
  ^ self new
-		title: aTitle;
-		text: aText;
+		name: aName;
+		description: aDescription;
 		yourself
 ]
 
 { #category : #accessor }
-DCPlant class >> title: aTitle text: aText category: aCategory [
-	^ (self title: aTitle text: aText)
+DCPlant class >> name: aName description: aDescription category: aCategory [ 
+ ^ self new
+		name: aName;
+		description: aDescription;
 		category: aCategory;
 		yourself
 ]
@@ -43,34 +47,39 @@ self visible: true
 
 { #category : #accessing }
 DCPlant >> category [
-^ category
-
+	^ category
 ]
 
 { #category : #accessing }
 DCPlant >> category: anObject [
-category := anObject
-
+	category := anObject
 ]
 
 { #category : #accessing }
-DCPlant >> date [
-^ date
-
+DCPlant >> description [
+	^ description
 ]
 
 { #category : #accessing }
-DCPlant >> date: aDate [
-date := aDate
+DCPlant >> description: anObject [
+	description := anObject
+]
 
+{ #category : #accessing }
+DCPlant >> health [
+	^ health
+]
+
+{ #category : #accessing }
+DCPlant >> health: anObject [
+	health := anObject
 ]
 
 { #category : #initialization }
 DCPlant >> initialize [
 super initialize.
 self category: self class unclassifiedTag.
-self date: Date today.
-self notVisible
+self visible: true.
 ]
 
 { #category : #testing }
@@ -81,6 +90,16 @@ DCPlant >> isUnclassified [
 { #category : #testing }
 DCPlant >> isVisible [ 
 	^ self visible
+]
+
+{ #category : #accessing }
+DCPlant >> name [
+	^ name
+]
+
+{ #category : #accessing }
+DCPlant >> name: anObject [
+	name := anObject
 ]
 
 { #category : #action }
@@ -94,26 +113,13 @@ self visible: false
 ]
 
 { #category : #accessing }
-DCPlant >> text [
-^ text
-
+DCPlant >> soil [
+	^ soil
 ]
 
 { #category : #accessing }
-DCPlant >> text: aString [
-text := aString
-
-]
-
-{ #category : #accessing }
-DCPlant >> title [
-^ title
-
-]
-
-{ #category : #accessing }
-DCPlant >> title: aString [
-title := aString
+DCPlant >> soil: anObject [
+	soil := anObject
 ]
 
 { #category : #accessing }
@@ -126,4 +132,14 @@ DCPlant >> visible [
 DCPlant >> visible: aBoolean [
 visible := aBoolean
 
+]
+
+{ #category : #accessing }
+DCPlant >> water [
+	^ water
+]
+
+{ #category : #accessing }
+DCPlant >> water: anObject [
+	water := anObject
 ]

@@ -2,42 +2,35 @@ Class {
 	#name : #DCPlantComponent,
 	#superclass : #WAComponent,
 	#instVars : [
-		'post'
+		'plant'
 	],
 	#category : #'DaisyChain-Components'
 }
 
 { #category : #initialization }
-DCPlantComponent >> date [
-	^ post date
+DCPlantComponent >> description [
+	^ plant description 
 ]
 
 { #category : #initialization }
 DCPlantComponent >> initialize [ 
 	super initialize.
-	post := DCPlant new
+	plant := DCPlant new
+]
+
+{ #category : #initialization }
+DCPlantComponent >> name [
+	^ plant name
 ]
 
 { #category : #accessing }
-DCPlantComponent >> post: aPost [
-post := aPost
-
+DCPlantComponent >> plant: aPlant [
+	plant := aPlant
 ]
 
 { #category : #initialization }
 DCPlantComponent >> renderContentOn: html [
-html heading level: 2; with: self title.
-html heading level: 6; with: self date.
-html text: self text
+html heading level: 2; with: self name.
+html text: self description.
 
-]
-
-{ #category : #initialization }
-DCPlantComponent >> text [
-	^ post text
-]
-
-{ #category : #initialization }
-DCPlantComponent >> title [ 
-	^ post title
 ]

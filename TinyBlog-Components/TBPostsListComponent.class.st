@@ -14,7 +14,7 @@ html render: self categoriesComponent
 
 { #category : #'as yet unclassified' }
 TBPostsListComponent >> basicRenderPostsOn: html [
-self readSelectedPosts do: [ :p |
+self readSelectedPlants do: [ :p |
 html render: (self postComponentFor: p) ]
 
 ]
