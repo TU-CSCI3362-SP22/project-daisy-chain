@@ -11,7 +11,7 @@ Class {
 	#category : #DaisyChain
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessor }
 DCPlant class >> title: aTitle text: aText [
  ^ self new
 		title: aTitle;
@@ -19,14 +19,14 @@ DCPlant class >> title: aTitle text: aText [
 		yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessor }
 DCPlant class >> title: aTitle text: aText category: aCategory [
 	^ (self title: aTitle text: aText)
 		category: aCategory;
 		yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessor }
 DCPlant class >> unclassifiedTag [
 ^ 'Unclassified'
 ]
