@@ -64,18 +64,6 @@ html tbsContainer: [
 			html render: (DCPlantComponent new plant: p) ].
 		
 		 ].
-		html tbsColumn 
-		extraSmallSize: 12;
-		smallSize: 10;
-		mediumSize:8;
-		with: [
-		html form: [ 
-			html text: 'Plant name: '.
-			(html textInput)
-				value: (DCInv current);
-				callback: [ :value | DCInv writeBlogPost: ((DCPlant name: value description: '')visible: true) ]
-			html submitButton ].
-		].
 	 ] ]
 
 
