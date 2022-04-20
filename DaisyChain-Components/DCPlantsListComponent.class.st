@@ -58,13 +58,13 @@ with: [ self basicRenderCategoriesOn: html ]
 
 { #category : #'as yet unclassified' }
 DCPlantsListComponent >> renderContentOn: html [
-super renderContentOn: html.
-html
-tbsContainer: [
-html tbsRow
-showGrid;
-with: [ self renderCategoryColumnOn: html.
-self renderPostColumnOn: html ] ]
+	super renderContentOn: html.
+	html tbsContainer: [
+	html tbsRow
+	showGrid;
+	with: [ self renderCategoryColumnOn: html.
+	self renderPostColumnOn: html ] ].
+	
 
 ]
 

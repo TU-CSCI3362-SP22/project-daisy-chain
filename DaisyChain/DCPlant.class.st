@@ -3,6 +3,7 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'name',
+		'nickname',
 		'description',
 		'water',
 		'soil',
@@ -80,6 +81,7 @@ DCPlant >> initialize [
 super initialize.
 self category: self class unclassifiedTag.
 self visible: true.
+self nickname: ''
 ]
 
 { #category : #testing }
@@ -100,6 +102,16 @@ DCPlant >> name [
 { #category : #accessing }
 DCPlant >> name: anObject [
 	name := anObject
+]
+
+{ #category : #accessing }
+DCPlant >> nickname [
+	^ nickname
+]
+
+{ #category : #accessing }
+DCPlant >> nickname: anObject [
+	nickname := anObject
 ]
 
 { #category : #action }
