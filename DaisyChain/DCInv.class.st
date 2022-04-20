@@ -1,3 +1,6 @@
+"
+^ (self allPlants collect: [ :p | p category ]) asSet
+"
 Class {
 	#name : #DCInv,
 	#superclass : #Object,
@@ -54,6 +57,7 @@ DCInv class >> reset [
 { #category : #private }
 DCInv >> allCategories [
 	^ (self allPlants collect: [ :p | p category ]) asSet
+
 ]
 
 { #category : #'as yet unclassified' }
@@ -72,7 +76,7 @@ DCInv >> allVisiblePlants [
 ]
 
 { #category : #'as yet unclassified' }
-DCInv >> allVisiblePlantsromCategory: aCategory [ 
+DCInv >> allVisiblePlantsFromCategory: aCategory [ 
 	^ plants select: [ :p | p category = aCategory and: [ p isVisible ] ]
 ]
 

@@ -2,7 +2,8 @@ Class {
 	#name : #DCScreenComponent,
 	#superclass : #WAComponent,
 	#instVars : [
-		'header'
+		'header',
+		'addPlant'
 	],
 	#category : #'DaisyChain-Components'
 }
@@ -17,7 +18,7 @@ session to return the blog of the currently logged in user."
 
 { #category : #initialization }
 DCScreenComponent >> children [ 
-	^ { header }
+	^ { header . addPlant}
 ]
 
 { #category : #initialization }
@@ -35,7 +36,7 @@ DCScreenComponent >> initialize [
 DCScreenComponent >> readSelectedPlants [
 ^ self currentCategory
 ifNil: [ self blog allVisiblePlants ]
-ifNotNil: [ self blog allVisiblePlantsromCategory: self
+ifNotNil: [ self blog allVisiblePlantsFromCategory: self
 currentCategory ]
 
 ]
@@ -44,22 +45,37 @@ currentCategory ]
 DCScreenComponent >> renderContentOn: html [
 super renderContentOn: html.
 html tbsContainer: [
-html tbsRow showGrid;
-with: [
-html tbsColumn
-extraSmallSize: 12;
-smallSize: 2;
-mediumSize: 4;
-with: [
-html render: (DCCategoriesComponent
-categories: (self blog allCategories)
-postsList: self) ].
-html tbsColumn
-extraSmallSize: 12;
-smallSize: 10;
-mediumSize: 8;
-with: [
-self readSelectedPlants do: [ :p |
-html render: (DCPlantComponent new plant: p) ] ] ] ]
+	html tbsRow showGrid;
+	with: [
+		html tbsColumn
+		extraSmallSize: 12;
+		smallSize: 2;
+		mediumSize: 4;
+		with: [
+			html render: (DCCategoriesComponent
+			categories: (self blog allCategories)
+			postsList: self) ].
+		html tbsColumn
+		extraSmallSize: 12;
+		smallSize: 10;
+		mediumSize: 8;
+		with: [
+			self readSelectedPlants do: [ :p |
+			html render: (DCPlantComponent new plant: p) ].
+		
+		 ].
+	 ]. 
+	html tbsRow showGrid;
+	with: [
+		html tbsColumn 
+		extraSmallSize: 12;
+		smallSize: 10;
+		mediumSize: 8;
+		with: [
+			html render: DCAddPlantComponent new.
+		
+		 ].
+		]]
+
 
 ]
