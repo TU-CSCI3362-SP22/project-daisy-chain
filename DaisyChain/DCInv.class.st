@@ -82,6 +82,13 @@ DCInv >> initialize [
 	plants := OrderedCollection new
 ]
 
+{ #category : #'as yet unclassified' }
+DCInv >> plantsNotOwned [
+| ml notHaveList |
+	ml = DCMasterList new.
+	ml masterlist do: [ :plant | ]
+]
+
 { #category : #removing }
 DCInv >> removeAllPlants [
 	plants := OrderedCollection new.
