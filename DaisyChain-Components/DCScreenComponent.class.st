@@ -55,12 +55,14 @@ html tbsContainer: [
 			html render: (DCCategoriesComponent
 			categories: (self blog allCategories)
 			postsList: self) ].
-html tbsColumn
-extraSmallSize: 12;
-smallSize: 10;
-mediumSize: 8;
-with: [
-self readSelectedPlants do: [ :p |
-html render: (DCPlantComponent new plant: p) ] ] ] ]
+		html tbsColumn
+		extraSmallSize: 12;
+		smallSize: 10;
+		mediumSize: 8;
+		with: [
+			self readSelectedPlants do: [ :p |
+			html render: (DCPlantComponent new plant: p) ].
+		
+		 ] ] ]
 
 ]
