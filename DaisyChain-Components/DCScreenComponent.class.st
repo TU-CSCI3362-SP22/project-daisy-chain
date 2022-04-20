@@ -64,7 +64,18 @@ html tbsContainer: [
 			html render: (DCPlantComponent new plant: p) ].
 		
 		 ].
-	 ] ]
+	 ]. 
+	html tbsRow showGrid;
+	with: [
+		html tbsColumn 
+		extraSmallSize: 12;
+		smallSize: 10;
+		mediumSize: 8;
+		with: [
+			html render: DCAddPlantComponent new.
+		
+		 ].
+		]]
 
 
 ]
