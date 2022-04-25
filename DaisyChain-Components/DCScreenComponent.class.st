@@ -76,6 +76,21 @@ mediumSize: 8;
 with: [
 html strong: 'Wishlist'.
 self readWishlistPlants do: [ :p |
-	html render: (DCPlantComponent new plant: p) ] ]]].
+	html render: (DCPlantComponent new plant: p) ] ]].
+html break.
+html break.
+html strong: 'Add Plant'.
+html tbsRow showGrid;
+	with: [
+		html tbsColumn 
+		extraSmallSize: 12;
+		smallSize: 10;
+		mediumSize: 8;
+		with: [
+			html render: DCAddPlantComponent new.
+		
+		 ].
+		]
+].
 
 ]
