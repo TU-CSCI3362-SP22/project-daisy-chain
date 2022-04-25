@@ -37,7 +37,12 @@ DCPlantComponent >> plant: aPlant [
 DCPlantComponent >> renderContentOn: html [
 html heading level: 2; with: self nickname.
 html heading level: 3; with: self name.
+html anchor
+       callback: [ html render: (DCPlantNotesComponent new plant: plant)];
+       with: 'notes'.
+
 html text: self description.
+
 plant nickname = ''
 ifTrue:[
 html form: [ 
