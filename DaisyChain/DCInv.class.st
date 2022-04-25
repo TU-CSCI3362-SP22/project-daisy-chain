@@ -1,9 +1,12 @@
+"
+^ (self allPlants collect: [ :p | p category ]) asSet
+"
 Class {
 	#name : #DCInv,
 	#superclass : #Object,
 	#instVars : [
 		'plants',
-		'wishlist'
+		'masterListOfPlants', 'wishlist'
 	],
 	#category : #DaisyChain
 }
@@ -57,6 +60,7 @@ DCInv class >> reset [
 { #category : #private }
 DCInv >> allCategories [
 	^ (self allPlants collect: [ :p | p category ]) asSet
+
 ]
 
 { #category : #'as yet unclassified' }
@@ -75,7 +79,7 @@ DCInv >> allVisiblePlants [
 ]
 
 { #category : #'as yet unclassified' }
-DCInv >> allVisiblePlantsromCategory: aCategory [ 
+DCInv >> allVisiblePlantsFromCategory: aCategory [ 
 	^ plants select: [ :p | p category = aCategory and: [ p isVisible ] ]
 ]
 
@@ -87,13 +91,32 @@ DCInv >> allWishlistPlants [
 { #category : #initialization }
 DCInv >> initialize [ 
 	super initialize.
+	masterListOfPlants := DCMasterList new.
 	plants := OrderedCollection new.
-	wishlist := OrderedCollection new. 
+  wishlist := OrderedCollection new.
+	
 ]
 
 { #category : #accessing }
-DCInv >> plants: anObject [
-	plants := anObject
+DCInv >> masterListOfPlants [
+	^ masterListOfPlants
+	
+"Warning! this returns the DCMasterList Object! Not the master list OrderedCollection.
+Call [masterListOfPlants masterlist] to get the actual OrderedCollection"
+]
+
+{ #category : #accessing }
+DCInv >> masterListOfPlants: anObject [
+	masterListOfPlants := anObject
+]
+
+{ #category : #'as yet unclassified' }
+DCInv >> plantsNotOwned [
+|  allOwnedPlants notHaveList |
+	allOwnedPlants := self allPlants.
+	notHaveList := OrderedCollection new.
+	masterListOfPlants masterlist do: [ :plant | (allOwnedPlants includes: plant) ifFalse: [notHaveList add: plant]].
+	^ notHaveList
 ]
 
 { #category : #removing }

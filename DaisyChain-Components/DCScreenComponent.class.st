@@ -2,7 +2,8 @@ Class {
 	#name : #DCScreenComponent,
 	#superclass : #WAComponent,
 	#instVars : [
-		'header'
+		'header',
+		'addPlant'
 	],
 	#category : #'DaisyChain-Components'
 }
@@ -17,7 +18,7 @@ session to return the blog of the currently logged in user."
 
 { #category : #initialization }
 DCScreenComponent >> children [ 
-	^ { header }
+	^ { header . addPlant}
 ]
 
 { #category : #initialization }
@@ -35,7 +36,7 @@ DCScreenComponent >> initialize [
 DCScreenComponent >> readSelectedPlants [
 ^ self currentCategory
 ifNil: [ self blog allVisiblePlants ]
-ifNotNil: [ self blog allVisiblePlantsromCategory: self
+ifNotNil: [ self blog allVisiblePlantsFromCategory: self
 currentCategory ]
 
 ]
@@ -76,4 +77,5 @@ with: [
 html strong: 'Wishlist'.
 self readWishlistPlants do: [ :p |
 	html render: (DCPlantComponent new plant: p) ] ]]].
+
 ]
