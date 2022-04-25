@@ -41,6 +41,13 @@ currentCategory ]
 ]
 
 { #category : #rendering }
+DCScreenComponent >> readWishlistPlants [
+^ self blog wishlist
+
+
+]
+
+{ #category : #rendering }
 DCScreenComponent >> renderContentOn: html [
 super renderContentOn: html.
 html tbsContainer: [
@@ -60,6 +67,13 @@ smallSize: 10;
 mediumSize: 8;
 with: [
 self readSelectedPlants do: [ :p |
-html render: (DCPlantComponent new plant: p) ] ] ] ]
-
+html render: (DCPlantComponent new plant: p) ] ].
+html tbsColumn 
+extraSmallSize: 12;
+smallSize: 10;
+mediumSize: 8;
+with: [
+html strong: 'Wishlist'.
+self readWishlistPlants do: [ :p |
+	html render: (DCPlantComponent new plant: p) ] ]]].
 ]
