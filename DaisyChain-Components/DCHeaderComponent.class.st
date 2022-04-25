@@ -9,13 +9,14 @@ DCHeaderComponent >> renderBrandOn: html [
 html tbsNavbarHeader: [
 html tbsNavbarBrand
 url: self application url;
-with: 'Daisy Chain' ]
+with: 'Daisy Chain'. ]
+
 ]
 
 { #category : #rendering }
 DCHeaderComponent >> renderContentOn: html [
 html tbsNavbar beDefault; with: [
 html tbsContainer: [
-self renderBrandOn: html
+self renderBrandOn: html.
 ]]
 ]

@@ -6,7 +6,7 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'plants',
-		'masterListOfPlants'
+		'masterListOfPlants', 'wishlist'
 	],
 	#category : #DaisyChain
 }
@@ -24,7 +24,9 @@ writeBlogPost: ((DCPlant name: 'Carrots' description:
 writeBlogPost: ((DCPlant name: 'Unknown Plant' description:
 'Unsure what this is but Ill let it grow.') visible: true);
 writeBlogPost: ((DCPlant name: 'Lemon Tree' description:
-'A lemon tree.' category: 'Tree') visible: true)
+'A lemon tree.' category: 'Tree') visible: true);
+writeWishlistPlant: ((DCPlant name: 'GEM Tree' description:
+'A GEM tree.' category: 'Tree') visible: true)
 ]
 
 { #category : #initialization }
@@ -81,11 +83,17 @@ DCInv >> allVisiblePlantsFromCategory: aCategory [
 	^ plants select: [ :p | p category = aCategory and: [ p isVisible ] ]
 ]
 
+{ #category : #'as yet unclassified' }
+DCInv >> allWishlistPlants [
+	^ wishlist
+]
+
 { #category : #initialization }
 DCInv >> initialize [ 
 	super initialize.
 	masterListOfPlants := DCMasterList new.
-	plants := OrderedCollection new
+	plants := OrderedCollection new.
+  wishlist := OrderedCollection new.
 	
 ]
 
@@ -122,9 +130,26 @@ DCInv >> size [
 	^ plants size
 ]
 
+{ #category : #accessing }
+DCInv >> wishlist [
+	^ wishlist
+]
+
+{ #category : #accessing }
+DCInv >> wishlist: anObject [
+	wishlist := anObject
+]
+
 { #category : #writing }
 DCInv >> writeBlogPost: aPost [ 
 	"Add the blog post to the list of posts"
 	self allPlants add: aPost.
+	self save
+]
+
+{ #category : #writing }
+DCInv >> writeWishlistPlant: aPost [ 
+	"Add the blog post to the list of posts"
+	self allWishlistPlants add: aPost.
 	self save
 ]

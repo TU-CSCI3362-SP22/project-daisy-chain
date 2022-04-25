@@ -42,40 +42,40 @@ currentCategory ]
 ]
 
 { #category : #rendering }
+DCScreenComponent >> readWishlistPlants [
+^ self blog wishlist
+
+
+]
+
+{ #category : #rendering }
 DCScreenComponent >> renderContentOn: html [
 super renderContentOn: html.
 html tbsContainer: [
-	html tbsRow showGrid;
-	with: [
-		html tbsColumn
-		extraSmallSize: 12;
-		smallSize: 2;
-		mediumSize: 4;
-		with: [
-			html render: (DCCategoriesComponent
-			categories: (self blog allCategories)
-			postsList: self) ].
-		html tbsColumn
-		extraSmallSize: 12;
-		smallSize: 10;
-		mediumSize: 8;
-		with: [
-			self readSelectedPlants do: [ :p |
-			html render: (DCPlantComponent new plant: p) ].
-		
-		 ].
-	 ]. 
-	html tbsRow showGrid;
-	with: [
-		html tbsColumn 
-		extraSmallSize: 12;
-		smallSize: 10;
-		mediumSize: 8;
-		with: [
-			html render: DCAddPlantComponent new.
-		
-		 ].
-		]]
-
+html tbsRow showGrid;
+with: [
+html tbsColumn
+extraSmallSize: 12;
+smallSize: 2;
+mediumSize: 4;
+with: [
+html render: (DCCategoriesComponent
+categories: (self blog allCategories)
+postsList: self) ].
+html tbsColumn
+extraSmallSize: 12;
+smallSize: 10;
+mediumSize: 8;
+with: [
+self readSelectedPlants do: [ :p |
+html render: (DCPlantComponent new plant: p) ] ].
+html tbsColumn 
+extraSmallSize: 12;
+smallSize: 10;
+mediumSize: 8;
+with: [
+html strong: 'Wishlist'.
+self readWishlistPlants do: [ :p |
+	html render: (DCPlantComponent new plant: p) ] ]]].
 
 ]
