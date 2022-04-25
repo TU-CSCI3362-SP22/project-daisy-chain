@@ -19,5 +19,7 @@ DCPlantNotesComponent >> plant: anObject [
 
 { #category : #rendering }
 DCPlantNotesComponent >> renderContentOn: html [
-html text: 'hell'
+html anchor
+		callback: [ self session presenter call: DCScreenComponent render];
+		with: 'Close'
 ]

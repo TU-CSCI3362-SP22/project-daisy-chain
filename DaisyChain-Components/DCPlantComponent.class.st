@@ -37,9 +37,6 @@ DCPlantComponent >> plant: aPlant [
 DCPlantComponent >> renderContentOn: html [
 html heading level: 2; with: self nickname.
 html heading level: 3; with: self name.
-html anchor
-       callback: [ html render: (DCPlantNotesComponent new plant: plant)];
-       with: 'notes'.
 
 html text: self description.
 
@@ -57,7 +54,15 @@ ifFalse:[
 	html anchor
 		callback: [ plant nickname: '' ];
 		with: 'Clear Nickname'.
-]
+].
+
+html break.
+
+html anchor
+       callback: [ self session presenter call: DCPlantNotesComponent new ];
+       with: 'notes'.
+
+
 ]
 
 { #category : #initialization }
