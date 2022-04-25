@@ -5,7 +5,8 @@ Class {
 	#name : #DCInv,
 	#superclass : #Object,
 	#instVars : [
-		'plants'
+		'plants',
+		'masterListOfPlants'
 	],
 	#category : #DaisyChain
 }
@@ -83,7 +84,31 @@ DCInv >> allVisiblePlantsFromCategory: aCategory [
 { #category : #initialization }
 DCInv >> initialize [ 
 	super initialize.
+	masterListOfPlants := DCMasterList new.
 	plants := OrderedCollection new
+	
+]
+
+{ #category : #accessing }
+DCInv >> masterListOfPlants [
+	^ masterListOfPlants
+	
+"Warning! this returns the DCMasterList Object! Not the master list OrderedCollection.
+Call [masterListOfPlants masterlist] to get the actual OrderedCollection"
+]
+
+{ #category : #accessing }
+DCInv >> masterListOfPlants: anObject [
+	masterListOfPlants := anObject
+]
+
+{ #category : #'as yet unclassified' }
+DCInv >> plantsNotOwned [
+|  allOwnedPlants notHaveList |
+	allOwnedPlants := self allPlants.
+	notHaveList := OrderedCollection new.
+	masterListOfPlants masterlist do: [ :plant | (allOwnedPlants includes: plant) ifFalse: [notHaveList add: plant]].
+	^ notHaveList
 ]
 
 { #category : #removing }
