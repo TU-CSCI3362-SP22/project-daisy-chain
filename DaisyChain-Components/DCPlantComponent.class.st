@@ -1,43 +1,12 @@
 Class {
 	#name : #DCPlantComponent,
-	#superclass : #WAComponent,
-	#instVars : [
-		'plant'
-	],
+	#superclass : #DCPlantDisplayComponent,
 	#category : #'DaisyChain-Components'
 }
-
-{ #category : #initialization }
-DCPlantComponent >> description [
-	^ plant description 
-]
-
-{ #category : #initialization }
-DCPlantComponent >> initialize [ 
-	super initialize.
-	plant := DCPlant new
-]
-
-{ #category : #initialization }
-DCPlantComponent >> name [
-	^ plant name
-]
 
 { #category : #accessing }
 DCPlantComponent >> nickname [
 	^ plant nickname
-]
-
-{ #category : #accessing }
-DCPlantComponent >> plant: aPlant [
-	plant := aPlant
-]
-
-{ #category : #removing }
-DCPlantComponent >> remove: aPlant [
-	DCInv current wishlist: (DCInv current wishlist reject: [ :p | p == aPlant ])
-	
-	
 ]
 
 { #category : #initialization }
@@ -60,14 +29,6 @@ ifFalse:[
 		callback: [ plant nickname: '' ];
 		with: 'Clear Nickname'.
 ].
-
-html form: [ 
-	html break.
-	html anchor 
-		callback: [ self remove: plant ];
-		with: 'Delete Plant'.
-].
-
 
 ]
 
