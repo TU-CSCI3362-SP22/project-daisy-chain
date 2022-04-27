@@ -58,10 +58,14 @@ ifFalse:[
 
 html break.
 
-html anchor
-       callback: [ self session presenter call: DCPlantNotesComponent new ];
-       with: 'notes'.
-
+html text: 'Notes'.
+html break.
+html form: [  
+	html textArea on: #notes of: plant;
+		value: plant notes.
+	html break.
+	html submitButton.
+]
 
 ]
 
