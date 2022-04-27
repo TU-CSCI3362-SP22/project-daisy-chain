@@ -9,7 +9,8 @@ Class {
 		'soil',
 		'health',
 		'visible',
-		'category'
+		'category',
+		'notes'
 	],
 	#category : #DaisyChain
 }
@@ -81,7 +82,8 @@ DCPlant >> initialize [
 super initialize.
 self category: self class unclassifiedTag.
 self visible: true.
-self nickname: ''
+self nickname: ''.
+self notes: ''.
 ]
 
 { #category : #testing }
@@ -122,6 +124,16 @@ DCPlant >> notVisibile [
 { #category : #accessing }
 DCPlant >> notVisible [
 self visible: false
+]
+
+{ #category : #accessing }
+DCPlant >> notes [
+	^ notes
+]
+
+{ #category : #accessing }
+DCPlant >> notes: anObject [
+	notes := anObject
 ]
 
 { #category : #accessing }
