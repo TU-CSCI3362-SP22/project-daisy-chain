@@ -6,7 +6,8 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'plants',
-		'masterListOfPlants', 'wishlist'
+		'masterListOfPlants',
+		'wishlist'
 	],
 	#category : #DaisyChain
 }

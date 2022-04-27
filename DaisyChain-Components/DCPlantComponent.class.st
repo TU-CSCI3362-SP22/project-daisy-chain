@@ -33,6 +33,13 @@ DCPlantComponent >> plant: aPlant [
 	plant := aPlant
 ]
 
+{ #category : #removing }
+DCPlantComponent >> remove: aPlant [
+	DCInv current wishlist: (DCInv current wishlist reject: [ :p | p == aPlant ])
+	
+	
+]
+
 { #category : #initialization }
 DCPlantComponent >> renderContentOn: html [
 html heading level: 2; with: self nickname.
@@ -52,7 +59,16 @@ ifFalse:[
 	html anchor
 		callback: [ plant nickname: '' ];
 		with: 'Clear Nickname'.
-]
+].
+
+html form: [ 
+	html break.
+	html anchor 
+		callback: [ self remove: plant ];
+		with: 'Delete Plant'.
+].
+
+
 ]
 
 { #category : #initialization }
