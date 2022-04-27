@@ -121,6 +121,11 @@ DCInv >> plantsNotOwned [
 ]
 
 { #category : #removing }
+DCInv >> remove: aPlant [
+	DCInv current wishlist: (DCInv current wishlist reject: [ :p | p == aPlant ])
+]
+
+{ #category : #removing }
 DCInv >> removeAllPlants [
 	plants := OrderedCollection new.
 	self save.
