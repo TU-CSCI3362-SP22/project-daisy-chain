@@ -6,8 +6,7 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'plants',
-		'masterListOfPlants',
-		'wishlist'
+		'masterListOfPlants', 'wishlist'
 	],
 	#category : #DaisyChain
 }
@@ -118,11 +117,6 @@ DCInv >> plantsNotOwned [
 	notHaveList := OrderedCollection new.
 	masterListOfPlants masterlist do: [ :plant | (allOwnedPlants includes: plant) ifFalse: [notHaveList add: plant]].
 	^ notHaveList
-]
-
-{ #category : #removing }
-DCInv >> remove: aPlant [
-	DCInv current wishlist: (DCInv current wishlist reject: [ :p | p == aPlant ])
 ]
 
 { #category : #removing }
