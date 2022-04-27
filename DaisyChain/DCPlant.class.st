@@ -39,6 +39,8 @@ DCPlant class >> unclassifiedTag [
 { #category : #action }
 DCPlant >> beVisibile [
 	self visible: true
+	
+"Should we delete this? - Travis"
 ]
 
 { #category : #accessing }
