@@ -11,6 +11,7 @@ Class {
 		'visible',
 		'category',
 		'toDelete'
+		'notes'
 	],
 	#category : #DaisyChain
 }
@@ -84,6 +85,7 @@ self category: self class unclassifiedTag.
 self visible: true.
 self nickname: ''.
 self toDelete: false.
+self notes: ''.
 ]
 
 { #category : #testing }
@@ -124,6 +126,16 @@ DCPlant >> notVisibile [
 { #category : #accessing }
 DCPlant >> notVisible [
 self visible: false
+]
+
+{ #category : #accessing }
+DCPlant >> notes [
+	^ notes
+]
+
+{ #category : #accessing }
+DCPlant >> notes: anObject [
+	notes := anObject
 ]
 
 { #category : #accessing }
