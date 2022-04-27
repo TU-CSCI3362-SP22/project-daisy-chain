@@ -92,5 +92,5 @@ html tbsRow showGrid;
 		 ].
 		]
 ].
-
+html anchor callback: [ self show: WAWelcomeExampleCounter new ]; with: 'Counter'.
 ]

@@ -65,8 +65,12 @@ html form: [
 		value: plant notes.
 	html break.
 	html submitButton.
-]
-
+].
+html break.
+html text: (plant needsWatering).
+html button 
+	callback: [ plant waterTime: (DateAndTime now) ];
+	with: 'Water'.
 ]
 
 { #category : #initialization }
