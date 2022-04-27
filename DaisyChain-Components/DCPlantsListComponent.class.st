@@ -70,13 +70,3 @@ smallSize: 10;
 mediumSize: 8;
 with: [ self basicRenderPostsOn: html ]
 ]
-
-{ #category : #accessing }
-DCPlantsListComponent >> wishlist [
-	^ wishlist
-]
-
-{ #category : #accessing }
-DCPlantsListComponent >> wishlist: anObject [
-	wishlist := anObject
-]
