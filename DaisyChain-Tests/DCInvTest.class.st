@@ -52,6 +52,13 @@ DCInvTest >> testAllVisiblePlantsFromCategory [
 ]
 
 { #category : #tests }
+DCInvTest >> testInitialize [ 
+	self assert: (inv masterListOfPlants)=nil equals: false.
+	self assert: (inv allPlants)=nil equals: false.
+	self assert: (inv allWishlistPlants)=nil equals: false.
+]
+
+{ #category : #tests }
 DCInvTest >> testPlantsNotOwned [
 	|plantsNoHave plantsHave|
 	plantsNoHave := inv plantsNotOwned.
