@@ -37,9 +37,7 @@ DCPlantComponent >> plant: aPlant [
 DCPlantComponent >> renderContentOn: html [
 html heading level: 2; with: self nickname.
 html heading level: 3; with: self name.
-
 html text: self description.
-
 plant nickname = ''
 ifTrue:[
 html form: [ 
@@ -55,17 +53,6 @@ ifFalse:[
 		callback: [ plant nickname: '' ];
 		with: 'Clear Nickname'.
 ].
-
-html break.
-
-html text: 'Notes'.
-html break.
-html form: [  
-	html textArea on: #notes of: plant;
-		value: plant notes.
-	html break.
-	html submitButton.
-]
 
 ]
 
