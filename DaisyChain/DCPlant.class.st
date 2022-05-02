@@ -10,6 +10,7 @@ Class {
 		'health',
 		'visible',
 		'category',
+		'notes',
 		'toDelete'
 	],
 	#category : #DaisyChain
@@ -83,6 +84,7 @@ super initialize.
 self category: self class unclassifiedTag.
 self visible: true.
 self nickname: ''.
+self notes: ''.
 self toDelete: false.
 ]
 
@@ -134,16 +136,6 @@ DCPlant >> soil [
 { #category : #accessing }
 DCPlant >> soil: anObject [
 	soil := anObject
-]
-
-{ #category : #accessing }
-DCPlant >> toDelete [
-	^ toDelete
-]
-
-{ #category : #accessing }
-DCPlant >> toDelete: anObject [
-	toDelete := anObject
 ]
 
 { #category : #accessing }

@@ -1,12 +1,36 @@
 Class {
 	#name : #DCPlantComponent,
-	#superclass : #DCPlantDisplayComponent,
+	#superclass : #WAComponent,
+	#instVars : [
+		'plant'
+	],
 	#category : #'DaisyChain-Components'
 }
+
+{ #category : #initialization }
+DCPlantComponent >> description [
+	^ plant description 
+]
+
+{ #category : #initialization }
+DCPlantComponent >> initialize [ 
+	super initialize.
+	plant := DCPlant new
+]
+
+{ #category : #initialization }
+DCPlantComponent >> name [
+	^ plant name
+]
 
 { #category : #accessing }
 DCPlantComponent >> nickname [
 	^ plant nickname
+]
+
+{ #category : #accessing }
+DCPlantComponent >> plant: aPlant [
+	plant := aPlant
 ]
 
 { #category : #initialization }
