@@ -67,6 +67,7 @@ extraSmallSize: 12;
 smallSize: 10;
 mediumSize: 8;
 with: [
+html heading level: 2; with:'Your Plants'.
 self readSelectedPlants do: [ :p |
 html render: (DCPlantComponent new plant: p) ] ].
 html tbsColumn 
@@ -74,12 +75,12 @@ extraSmallSize: 12;
 smallSize: 10;
 mediumSize: 8;
 with: [
-html strong: 'Wishlist'.
+html heading level: 2; with:'Wishlist '.
 self readWishlistPlants do: [ :p |
-	html render: (DCPlantComponent new plant: p) ] ]].
+	html render: (DCWishlistComponent new plant: p) ] ]].
 html break.
 html break.
-html strong: 'Add Plant'.
+html heading level: 2; with:'Add Plant'.
 html tbsRow showGrid;
 	with: [
 		html tbsColumn 
