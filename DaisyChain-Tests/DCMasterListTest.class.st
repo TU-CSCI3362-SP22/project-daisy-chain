@@ -17,7 +17,7 @@ DCMasterListTest >> setUp [
 { #category : #tests }
 DCMasterListTest >> testAdd [
 	| plant |
-	plant := ((DCPlant name:'FakePlant' description:'You should not see this.' category: 'Meow') visible: true).
+	plant := ((DCPlant name:'FakePlant' description:'[testAdd] Test Plant. You should not see this.' category: 'Meow') visible: true).
 	dcMasterList add: plant.
 	dcMasterList add: plant.
 	self assert: (dcMasterList masterlist includes: plant) equals: true.
